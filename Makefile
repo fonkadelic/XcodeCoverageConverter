@@ -19,6 +19,14 @@ Xcodecoverageconverter: $(SOURCES)
 		--disable-sandbox \
 		--scratch-path "$(BUILDDIR)"
 
+build: $(SOURCES)
+	@swift build \
+		-c release \
+		--arch arm64 \
+		--arch x86_64 \
+		--disable-sandbox \
+		--scratch-path "$(BUILDDIR)"
+
 .PHONY: install
 install: Xcodecoverageconverter
 	@install -d "$(bindir)"
